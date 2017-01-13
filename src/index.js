@@ -7,11 +7,12 @@ import Start from './components/Start.js';
 import App from './components/App.js';
 
 import spotifyClientId from './spotify-client-id.js';
-const spotifyAuthUri = 'https://accounts.spotify.com/authorize/?'
-  + 'client_id=' + spotifyClientId
-  + '&redirect_uri=' + 'http://localhost:8080'
-  + '&scope=user-top-read'
-  + '&response_type=token';
+const spotifyAuthUri = 'https://accounts.spotify.com/authorize/?' + queryString.stringify({
+  client_id: spotifyClientId,
+  redirect_uri: window.location.protocol + '//' + window.location.host,
+  scope: 'user-top-read',
+  response_type: 'token'
+});
 
 const hashFragment = queryString.parse(window.location.hash);
 const appElement = document.getElementById('app');
