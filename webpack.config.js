@@ -1,3 +1,13 @@
+// Temporary hack for Ubuntu on Windows:
+//   interface enumeration fails with EINVAL, so return empty.
+// See: https://github.com/Microsoft/BashOnWindows/issues/468
+try {
+  require('os').networkInterfaces();
+} catch (e) {
+  require('os').networkInterfaces = () => ({});
+}
+// -- Hack END
+
 const path = require('path');
 
 const APP_DIR = path.resolve(__dirname, 'src');
@@ -16,6 +26,10 @@ module.exports = {
         include: APP_DIR,
         loader: 'babel-loader',
         babelrc: true
+      },
+      {
+        test: /\.scss$/,
+        loaders: ["style-loader", "css-loader", "sass-loader"]
       }
     ]
   }
