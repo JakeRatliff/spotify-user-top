@@ -9,7 +9,7 @@ import App from './components/App.js';
 import spotifyClientId from './spotify-client-id.js';
 const spotifyAuthUri = 'https://accounts.spotify.com/authorize/?' + queryString.stringify({
   client_id: spotifyClientId,
-  redirect_uri: window.location.protocol + '//' + window.location.host,
+  redirect_uri: window.location.protocol + '//' + window.location.host + window.location.pathname,
   scope: 'user-top-read',
   response_type: 'token'
 });
