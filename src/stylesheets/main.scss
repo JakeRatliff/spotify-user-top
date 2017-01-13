@@ -47,6 +47,12 @@ h1.title {
       background: #1ec85a;
     }
   }
+
+  p {
+    padding-top: 20px;
+    font-size: 0.8em;
+    color: $text-dark;
+  }
 }
 
 .list-container {

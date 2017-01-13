@@ -10,6 +10,7 @@ export default class Start extends React.Component {
       <div className="start">
         <h1 className="title">User Stats for Spotify</h1>
         <button onClick={this.props.handleAuth}>Let's go!</button>
+        <p>Created by Viktor Gustavsson &lt;villor94@gmail.com&gt;</p>
       </div>
     );
   }
