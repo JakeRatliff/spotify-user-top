@@ -4,7 +4,7 @@
   "description": "Shows your top tracks and artists.",
   "main": "src/index.js",
   "scripts": {
-    "start": "webpack-dev-server --content-base build/",
+    "start": "webpack-dev-server --inline --hot --watch-poll --content-base build/",
     "build-dev": "webpack -d",
     "build-production": "webpack -p",
     "clean": "rm build/bundle.js build/bundle.js.map",
