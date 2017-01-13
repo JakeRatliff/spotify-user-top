@@ -9,10 +9,14 @@ module.exports = {
     path: BUILD_DIR,
     filename: 'bundle.js'
   },
-  loaders: {
-    test: /\.js$/,
-    include: APP_DIR,
-    loader: 'babel-loader',
-    babelrc: true
+  module: {
+    loaders: [
+      {
+        test: /\.js$/,
+        include: APP_DIR,
+        loader: 'babel-loader',
+        babelrc: true
+      }
+    ]
   }
 };
