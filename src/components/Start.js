@@ -7,8 +7,9 @@ export default class Start extends React.Component {
 
   render() {
     return (
-      <div>
-        <button onClick={this.props.handleAuth}>Authorize</button>
+      <div className="start">
+        <h1 className="title">User Stats for Spotify</h1>
+        <button onClick={this.props.handleAuth}>Let's go!</button>
       </div>
     );
   }

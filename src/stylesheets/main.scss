@@ -26,6 +26,29 @@ h1.title {
   font-size: 50px;
 }
 
+.start {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+
+  button {
+    border: 0;
+    background: $spotify-green;
+    color: $text-color;
+    cursor: pointer;
+
+    display: block;
+    width: 200px;
+    padding: 20px;
+
+    :hover {
+      background: #1ec85a;
+    }
+  }
+}
+
 .list-container {
   background: $bg-medium;
   display: inline-block;
