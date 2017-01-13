@@ -1,9 +1,11 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
 @import '~normalize.css/normalize.css';
 
 $background-color: white;
 $text-color: black;
 
 body {
+  font-family: 'Montserrat', sans-serif;
   background-color: $background-color;
   color: $text-color;
 }
