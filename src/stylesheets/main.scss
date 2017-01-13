@@ -7,3 +7,13 @@ body {
   background-color: $background-color;
   color: $text-color;
 }
+
+.list-container {
+  display: inline-block;
+  margin-left: 40px;
+}
+
+.list-container ol {
+  list-style: none;
+  padding-left: 0;
+}
