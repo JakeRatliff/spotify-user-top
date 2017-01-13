@@ -6,9 +6,9 @@ const apiUri = 'https://api.spotify.com/v1';
 const tracksUri = apiUri + '/me/top/tracks';
 const artistsUri = apiUri + '/me/top/artists';
 const timeRanges = [
-  'short_term',
-  'medium_term',
-  'long_term'
+  {value: 'short_term', label: 'Short term'},
+  {value: 'medium_term', label: 'Medium term'},
+  {value: 'long_term', label: 'Long term'}
 ];
 
 const Track = (props) => (
@@ -44,9 +44,16 @@ const List = (props) => (
 );
 
 const Selector = (props) => (
-  <select value={props.value} onChange={props.handleChange}>
-    {props.values.map(val => <option value={val} key={val}>{val}</option>)}
-  </select>
+    <div className="selector">
+      {props.options.map((o, i) =>
+        <button
+          key={i}
+          className={i === props.selectedIndex ? 'selected' : ''}
+          onClick={() => { props.handleChange(i); }}>
+          {o.label}
+        </button>
+      )}
+    </div>
 );
 
 export default class App extends React.Component {
@@ -57,7 +64,7 @@ export default class App extends React.Component {
     state = {
       tracks: [],
       artists: [],
-      timeRange: timeRanges[0]
+      selectedTimeRangeIndex: 0
     };
 
     componentDidMount() {
@@ -70,7 +77,7 @@ export default class App extends React.Component {
       };
       const query = '?' + queryString.stringify({
         limit: limit,
-        time_range: this.state.timeRange
+        time_range: timeRanges[this.state.selectedTimeRangeIndex].value
       });
 
       fetch(tracksUri + query, {headers: headers}).then((r) => r.json())
@@ -82,8 +89,8 @@ export default class App extends React.Component {
         .catch(e => console.log(e));
     }
 
-    handleSelectorChange = (event) => {
-      this.setState({timeRange: event.target.value}, this.updateLists);
+    handleSelectorChange = (i) => {
+      this.setState({selectedTimeRangeIndex: i}, this.updateLists);
     };
 
     render() {
@@ -91,7 +98,7 @@ export default class App extends React.Component {
         <div>
           <h1 className="title">User Stats for Spotify</h1>
           <div>
-            <Selector values={timeRanges} value={this.state.timeRange} handleChange={this.handleSelectorChange} />
+            <Selector options={timeRanges} selectedIndex={this.state.selectedTimeRangeIndex} handleChange={this.handleSelectorChange} />
           </div>
           <List title="Top Tracks" type={Track} dataArray={this.state.tracks} />
           <List title="Top Artists" type={Artist} dataArray={this.state.artists} />

@@ -29,12 +29,14 @@ h1.title {
 .list-container {
   background: $bg-medium;
   display: inline-block;
-  margin-left: 40px;
   margin-bottom: 40px;
   text-align: left;
   width: 600px;
   padding: 20px 50px;
   vertical-align: top;
+}
+.list-container:last-child {
+  margin-left: 40px;
 }
 
 .list-container ol {
@@ -106,4 +108,30 @@ h1.title {
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
+}
+
+.selector {
+  margin-bottom: 40px;
+
+  button {
+    border: 0;
+    padding: 15px;
+    cursor: pointer;
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    width: 300px;
+    background: $bg-medium;
+    color: $text-dark;
+  }
+
+  button:hover {
+    background: $bg-bright;
+    color: white;
+  }
+
+  button.selected, button.selected:hover {
+    background: $spotify-green;
+    color: $text-color;
+  }
 }
