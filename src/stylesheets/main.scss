@@ -1,21 +1,109 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat');
 @import '~normalize.css/normalize.css';
 
-$background-color: white;
-$text-color: black;
+$text-color: white;
+$text-dark: rgb(160,160,160);
+$spotify-green: #1DB954;
+$bg-dark: rgb(18,18,18);
+$bg-medium: rgb(24,24,24);
+$bg-bright: rgb(40,40,40);
+
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
 
 body {
   font-family: 'Montserrat', sans-serif;
-  background-color: $background-color;
+  background-color: $bg-dark;
   color: $text-color;
+  text-align: center;
+}
+
+h1.title {
+  font-size: 50px;
 }
 
 .list-container {
+  background: $bg-medium;
   display: inline-block;
   margin-left: 40px;
+  margin-bottom: 40px;
+  text-align: left;
+  width: 600px;
+  padding: 20px 50px;
+  vertical-align: top;
 }
 
 .list-container ol {
   list-style: none;
   padding-left: 0;
+}
+
+.list-container li {
+  position: relative;
+  background: $bg-bright;
+  height: 64px;
+  margin-bottom: 20px;
+}
+
+.list-container li img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 64px;
+  height: 64px;
+}
+
+.list-container li .list-number {
+  position: absolute;
+  top: 0;
+  left: 64px;
+  height: 64px;
+  width: 64px;
+  font-size: 25px;
+  text-align: center;
+  padding-top: 18px;
+  color: $spotify-green;
+}
+
+.list-container li .list-names {
+  position: absolute;
+  top: 0;
+  left: 64px * 2;
+  width: 500px - 64px - 64px;
+}
+
+.list-container li.track .list-names > div {
+  position: absolute;
+  width: 100%;
+  padding-right: 25px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.list-container li.track .list-names > div:first-child {
+  top: 0;
+  left: 0;
+  height: 36px;
+  padding-top: 14px;
+}
+
+.list-container li.track .list-names > div:last-child {
+  top: 36px;
+  left: 0;
+  height: 28px;
+  font-size: 0.8em;
+  color: $text-dark;
+}
+
+.list-container li.artist .list-names {
+  padding-top: 24px;
+  padding-right: 25px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
