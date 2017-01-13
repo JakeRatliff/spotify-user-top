@@ -1,0 +1,19 @@
+{
+  "name": "spotify-user-top",
+  "version": "1.0.0",
+  "description": "Shows your top tracks and artists.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/villor/spotify-user-top.git"
+  },
+  "author": "Viktor Gustavsson <villor94@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/villor/spotify-user-top/issues"
+  },
+  "homepage": "https://github.com/villor/spotify-user-top#readme"
+}
