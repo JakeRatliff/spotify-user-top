@@ -12,17 +12,20 @@ const timeRanges = [
 ];
 
 const Track = (props) => (
-  <li className="track">
-    <img src={props.album.images[props.album.images.length - 1].url} alt={props.name} />
-    <div className="list-number">{props.number}</div>
-    <div className="list-names">
-      <div title={props.name}>{props.name}</div>
-      <div title={props.artists[0].name}>{props.artists[0].name}</div>
-    </div>
-  </li>
+  <a href={props.external_urls.spotify} target="_blank">
+    <li className="track">
+      <img src={props.album.images[props.album.images.length - 1].url} alt={props.name} />
+      <div className="list-number">{props.number}</div>
+      <div className="list-names">
+        <div title={props.name}>{props.name}</div>
+        <div title={props.artists[0].name}>{props.artists[0].name}</div>
+      </div>
+    </li>
+  </a>
 );
 
 const Artist = (props) => (
+  <a href={props.external_urls.spotify} target="_blank">
     <li className="artist">
       { props.images.length ? (
         <img src={props.images[props.images.length - 1].url} alt={props.name} />
@@ -32,6 +35,7 @@ const Artist = (props) => (
       <div className="list-number">{props.number}</div>
       <div className="list-names" title={props.name}>{props.name}</div>
     </li>
+  </a>
 );
 
 const List = (props) => (

@@ -73,11 +73,20 @@ h1.title {
   padding-left: 0;
 }
 
+.list-container a {
+  text-decoration: none;
+  color: inherit;
+}
+
 .list-container li {
   position: relative;
   background: $bg-bright;
   height: 64px;
   margin-bottom: 20px;
+}
+
+.list-container li:hover {
+  background: lighten($bg-bright, 5%);
 }
 
 .list-container li img {
